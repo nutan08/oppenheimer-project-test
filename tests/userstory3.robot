@@ -72,7 +72,7 @@ TC6:Should not upload disturbed column sequence csv file to insert record of wor
     ${file_path}=   Get disturbed column csv file
     ${response_status_code}=    Upload file     ${file_path}
     Log     ${response_status_code}
-    All working class hero data should not be inserted in system    ${response_status_code}
+    All working class hero data should be inserted in system    ${response_status_code}
 
 TC7:Should not upload missing column csv file to insert record of working class hero (POST)
     ${file_path}=   Get missing column csv file

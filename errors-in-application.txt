@@ -1,0 +1,17 @@
+1. Application is inserting duplicate data
+   Resolution approach - check in db if record already exist and throws appropriate error if employee record already exist.
+
+2. invalid file type upload does nt give error on portal UI
+   Resolution approach - Show appropriate (file is not valid) error message on portal UI
+
+3. Tax relief result rounding up and down is not as per given logic.
+   Resolution approach - Please unit test this logic on development side and resolve bugs
+
+4. System is accepting future dated birthday
+   Resolution approach - Validate birthday with today's date after receiving request data for insertion and system should not accept if its future date
+
+5. System is accepting negative salary and tax
+   Resolution approach - Validate salary and tax after receiving request data for insertion
+
+6. System is accepting empty file to upload from portal UI
+   Resolution approach - System should check if file is empty or not, if it is then appropriate error message should be shown on portal
