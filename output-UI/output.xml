@@ -1,0 +1,725 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.2 (Python 3.9.8 on win32)" generated="20221007 00:33:32.339" rpa="false">
+<suite id="s1" name="userstory3 UI &amp; userstory5 UI">
+<suite id="s1-s1" name="userstory3 UI" source="E:\Assignment\oppenheimer-project-test\tests\userstory3_UI.robot">
+<test id="s1-s1-t1" name="TC1: Upload valid csv file to portal should populate working class heros in system">
+<kw name="Create Chrome Driver And Open Url" type="setup">
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<arguments>
+<arg>Chrome</arg>
+</arguments>
+<msg timestamp="20221007 00:33:32.709" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20221007 00:33:32.709" endtime="20221007 00:33:34.342"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+</arguments>
+<msg timestamp="20221007 00:33:34.343" level="INFO">Opening url 'http://localhost:8080/'</msg>
+<status status="PASS" starttime="20221007 00:33:34.342" endtime="20221007 00:33:36.659"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20221007 00:33:36.660" endtime="20221007 00:33:36.792"></status>
+</kw>
+<status status="PASS" starttime="20221007 00:33:32.709" endtime="20221007 00:33:36.792"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${valid_file_path}</arg>
+</arguments>
+<msg timestamp="20221007 00:33:36.792" level="INFO">Get valid csv file</msg>
+<status status="PASS" starttime="20221007 00:33:36.792" endtime="20221007 00:33:36.792"></status>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` is enabled.</doc>
+<arguments>
+<arg>xpath://body/div[1]/div[2]/div[1]/div[1]/div[2]/input[1]</arg>
+<arg>60</arg>
+</arguments>
+<status status="PASS" starttime="20221007 00:33:36.792" endtime="20221007 00:33:36.837"></status>
+</kw>
+<kw name="Choose File" library="SeleniumLibrary">
+<doc>Inputs the ``file_path`` into file input field ``locator``.</doc>
+<arguments>
+<arg>xpath://body/div[1]/div[2]/div[1]/div[1]/div[2]/input[1]</arg>
+<arg>${EXECDIR}${/}\\testdata\\valid_test_data_file.csv</arg>
+</arguments>
+<status status="PASS" starttime="20221007 00:33:36.837" endtime="20221007 00:33:36.897"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://button[contains(text(),'Refresh Tax Relief Table')]</arg>
+</arguments>
+<msg timestamp="20221007 00:33:36.898" level="INFO">Clicking button 'xpath://button[contains(text(),'Refresh Tax Relief Table')]'.</msg>
+<status status="PASS" starttime="20221007 00:33:36.897" endtime="20221007 00:33:36.987"></status>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<arguments>
+<arg>window.scrollTo(0,6000)</arg>
+</arguments>
+<msg timestamp="20221007 00:33:36.988" level="INFO">Executing JavaScript:
+window.scrollTo(0,6000)
+Without any arguments.</msg>
+<status status="PASS" starttime="20221007 00:33:36.987" endtime="20221007 00:33:36.999"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20221007 00:33:39.004" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20221007 00:33:36.999" endtime="20221007 00:33:39.004"></status>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` contains exact text ``expected``.</doc>
+<arguments>
+<arg>xpath:/html[1]/body[1]/div[1]/div[2]/div[1]/div[3]/div[1]/p[1]</arg>
+<arg>£645357.35 will be dispensed to 28 Working Class Hero/s</arg>
+<arg>timeout=5</arg>
+</arguments>
+<assign>
+<var>${elem}</var>
+</assign>
+<msg timestamp="20221007 00:33:39.004" level="INFO">Verifying element 'xpath:/html[1]/body[1]/div[1]/div[2]/div[1]/div[3]/div[1]/p[1]' contains exact text '£645357.35 will be dispensed to 28 Working Class Hero/s'.</msg>
+<msg timestamp="20221007 00:33:39.035" level="INFO">${elem} = None</msg>
+<status status="PASS" starttime="20221007 00:33:39.004" endtime="20221007 00:33:39.035"></status>
+</kw>
+<kw name="Clean Up Data And Close Browser" type="teardown">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>rakedbsession</arg>
+<arg>${url}</arg>
+</arguments>
+<msg timestamp="20221007 00:33:39.035" level="INFO">Creating Session using : alias=rakedbsession, url=http://localhost:8080/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20221007 00:33:39.035" endtime="20221007 00:33:39.035"></status>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<arguments>
+<arg>rakedbsession</arg>
+<arg>/calculator/rakeDatabase</arg>
+</arguments>
+<msg timestamp="20221007 00:33:39.035" level="INFO">POST Request : url=http://localhost:8080/calculator/rakeDatabase 
+ path_url=/calculator/rakeDatabase 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20221007 00:33:39.035" level="INFO">POST Response : url=http://localhost:8080/calculator/rakeDatabase 
+ status=200, reason= 
+ headers={'Content-Type': 'text/plain;charset=UTF-8', 'Content-Length': '21', 'Date': 'Thu, 06 Oct 2022 16:33:39 GMT'} 
+ body=Successfully raked DB 
+ </msg>
+<status status="PASS" starttime="20221007 00:33:39.035" endtime="20221007 00:33:39.035"></status>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20221007 00:33:39.035" endtime="20221007 00:33:41.295"></status>
+</kw>
+<status status="PASS" starttime="20221007 00:33:39.035" endtime="20221007 00:33:41.295"></status>
+</kw>
+<status status="PASS" starttime="20221007 00:33:32.709" endtime="20221007 00:33:41.295" critical="yes"></status>
+</test>
+<test id="s1-s1-t2" name="TC2:Upload only heading csv file to insert record of working class hero (POST)">
+<kw name="Create Chrome Driver And Open Url" type="setup">
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<arguments>
+<arg>Chrome</arg>
+</arguments>
+<msg timestamp="20221007 00:33:41.295" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20221007 00:33:41.295" endtime="20221007 00:33:42.779"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+</arguments>
+<msg timestamp="20221007 00:33:42.779" level="INFO">Opening url 'http://localhost:8080/'</msg>
+<status status="PASS" starttime="20221007 00:33:42.779" endtime="20221007 00:33:44.907"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20221007 00:33:44.907" endtime="20221007 00:33:45.052"></status>
+</kw>
+<status status="PASS" starttime="20221007 00:33:41.295" endtime="20221007 00:33:45.052"></status>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` is enabled.</doc>
+<arguments>
+<arg>xpath://body/div[1]/div[2]/div[1]/div[1]/div[2]/input[1]</arg>
+<arg>60</arg>
+</arguments>
+<status status="PASS" starttime="20221007 00:33:45.052" endtime="20221007 00:33:45.078"></status>
+</kw>
+<kw name="Choose File" library="SeleniumLibrary">
+<doc>Inputs the ``file_path`` into file input field ``locator``.</doc>
+<arguments>
+<arg>xpath://body/div[1]/div[2]/div[1]/div[1]/div[2]/input[1]</arg>
+<arg>${EXECDIR}${/}\\testdata\\only_headings_test_data_file.csv</arg>
+</arguments>
+<status status="PASS" starttime="20221007 00:33:45.078" endtime="20221007 00:33:45.124"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://button[contains(text(),'Refresh Tax Relief Table')]</arg>
+</arguments>
+<msg timestamp="20221007 00:33:45.124" level="INFO">Clicking button 'xpath://button[contains(text(),'Refresh Tax Relief Table')]'.</msg>
+<status status="PASS" starttime="20221007 00:33:45.124" endtime="20221007 00:33:45.195"></status>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<arguments>
+<arg>window.scrollTo(0,6000)</arg>
+</arguments>
+<msg timestamp="20221007 00:33:45.196" level="INFO">Executing JavaScript:
+window.scrollTo(0,6000)
+Without any arguments.</msg>
+<status status="PASS" starttime="20221007 00:33:45.195" endtime="20221007 00:33:45.205"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20221007 00:33:47.223" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20221007 00:33:45.205" endtime="20221007 00:33:47.223"></status>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` contains exact text ``expected``.</doc>
+<arguments>
+<arg>xpath:/html[1]/body[1]/div[1]/div[2]/div[1]/div[2]/div[1]/p[1]</arg>
+<arg>£0 will be dispensed to 0 Working Class Hero/s</arg>
+<arg>timeout=5</arg>
+</arguments>
+<assign>
+<var>${elem}</var>
+</assign>
+<msg timestamp="20221007 00:33:47.223" level="INFO">Verifying element 'xpath:/html[1]/body[1]/div[1]/div[2]/div[1]/div[2]/div[1]/p[1]' contains exact text '£0 will be dispensed to 0 Working Class Hero/s'.</msg>
+<msg timestamp="20221007 00:33:47.254" level="INFO">${elem} = None</msg>
+<status status="PASS" starttime="20221007 00:33:47.223" endtime="20221007 00:33:47.254"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${elem}</arg>
+</arguments>
+<msg timestamp="20221007 00:33:47.254" level="INFO">None</msg>
+<status status="PASS" starttime="20221007 00:33:47.254" endtime="20221007 00:33:47.270"></status>
+</kw>
+<kw name="Clean Up Data And Close Browser" type="teardown">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>rakedbsession</arg>
+<arg>${url}</arg>
+</arguments>
+<msg timestamp="20221007 00:33:47.270" level="INFO">Creating Session using : alias=rakedbsession, url=http://localhost:8080/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20221007 00:33:47.270" endtime="20221007 00:33:47.270"></status>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<arguments>
+<arg>rakedbsession</arg>
+<arg>/calculator/rakeDatabase</arg>
+</arguments>
+<msg timestamp="20221007 00:33:47.270" level="INFO">POST Request : url=http://localhost:8080/calculator/rakeDatabase 
+ path_url=/calculator/rakeDatabase 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20221007 00:33:47.270" level="INFO">POST Response : url=http://localhost:8080/calculator/rakeDatabase 
+ status=200, reason= 
+ headers={'Content-Type': 'text/plain;charset=UTF-8', 'Content-Length': '21', 'Date': 'Thu, 06 Oct 2022 16:33:47 GMT'} 
+ body=Successfully raked DB 
+ </msg>
+<status status="PASS" starttime="20221007 00:33:47.270" endtime="20221007 00:33:47.270"></status>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20221007 00:33:47.270" endtime="20221007 00:33:49.482"></status>
+</kw>
+<status status="PASS" starttime="20221007 00:33:47.270" endtime="20221007 00:33:49.482"></status>
+</kw>
+<status status="PASS" starttime="20221007 00:33:41.295" endtime="20221007 00:33:49.482" critical="yes"></status>
+</test>
+<test id="s1-s1-t3" name="TC3:Upload empty csv file to portal should not populate working class heros in system">
+<kw name="Create Chrome Driver And Open Url" type="setup">
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<arguments>
+<arg>Chrome</arg>
+</arguments>
+<msg timestamp="20221007 00:33:49.482" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20221007 00:33:49.482" endtime="20221007 00:33:50.867"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+</arguments>
+<msg timestamp="20221007 00:33:50.868" level="INFO">Opening url 'http://localhost:8080/'</msg>
+<status status="PASS" starttime="20221007 00:33:50.868" endtime="20221007 00:33:52.947"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20221007 00:33:52.947" endtime="20221007 00:33:53.072"></status>
+</kw>
+<status status="PASS" starttime="20221007 00:33:49.482" endtime="20221007 00:33:53.072"></status>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` is enabled.</doc>
+<arguments>
+<arg>xpath://body/div[1]/div[2]/div[1]/div[1]/div[2]/input[1]</arg>
+<arg>60</arg>
+</arguments>
+<status status="PASS" starttime="20221007 00:33:53.072" endtime="20221007 00:33:53.118"></status>
+</kw>
+<kw name="Choose File" library="SeleniumLibrary">
+<doc>Inputs the ``file_path`` into file input field ``locator``.</doc>
+<arguments>
+<arg>xpath://body/div[1]/div[2]/div[1]/div[1]/div[2]/input[1]</arg>
+<arg>${EXECDIR}${/}\\testdata\\empty_test_data_file.csv</arg>
+</arguments>
+<status status="PASS" starttime="20221007 00:33:53.118" endtime="20221007 00:33:53.195"></status>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` is enabled.</doc>
+<arguments>
+<arg>xpath://button[contains(text(),'Refresh Tax Relief Table')]</arg>
+<arg>60</arg>
+</arguments>
+<status status="PASS" starttime="20221007 00:33:53.195" endtime="20221007 00:33:53.236"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://button[contains(text(),'Refresh Tax Relief Table')]</arg>
+</arguments>
+<msg timestamp="20221007 00:33:53.236" level="INFO">Clicking button 'xpath://button[contains(text(),'Refresh Tax Relief Table')]'.</msg>
+<status status="PASS" starttime="20221007 00:33:53.236" endtime="20221007 00:33:53.299"></status>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<arguments>
+<arg>window.scrollTo(0,500)</arg>
+</arguments>
+<msg timestamp="20221007 00:33:53.300" level="INFO">Executing JavaScript:
+window.scrollTo(0,500)
+Without any arguments.</msg>
+<status status="PASS" starttime="20221007 00:33:53.299" endtime="20221007 00:33:53.308"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20221007 00:33:55.325" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20221007 00:33:53.309" endtime="20221007 00:33:55.325"></status>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` contains exact text ``expected``.</doc>
+<arguments>
+<arg>xpath:/html[1]/body[1]/div[1]/div[2]/div[1]/div[2]/div[1]/p[1]</arg>
+<arg>£0 will be dispensed to 0 Working Class Hero/s</arg>
+<arg>timeout=5</arg>
+</arguments>
+<msg timestamp="20221007 00:33:55.325" level="INFO">Verifying element 'xpath:/html[1]/body[1]/div[1]/div[2]/div[1]/div[2]/div[1]/p[1]' contains exact text '£0 will be dispensed to 0 Working Class Hero/s'.</msg>
+<status status="PASS" starttime="20221007 00:33:55.325" endtime="20221007 00:33:55.394"></status>
+</kw>
+<kw name="Clean Up Data And Close Browser" type="teardown">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>rakedbsession</arg>
+<arg>${url}</arg>
+</arguments>
+<msg timestamp="20221007 00:33:55.394" level="INFO">Creating Session using : alias=rakedbsession, url=http://localhost:8080/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20221007 00:33:55.394" endtime="20221007 00:33:55.394"></status>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<arguments>
+<arg>rakedbsession</arg>
+<arg>/calculator/rakeDatabase</arg>
+</arguments>
+<msg timestamp="20221007 00:33:55.394" level="INFO">POST Request : url=http://localhost:8080/calculator/rakeDatabase 
+ path_url=/calculator/rakeDatabase 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20221007 00:33:55.394" level="INFO">POST Response : url=http://localhost:8080/calculator/rakeDatabase 
+ status=200, reason= 
+ headers={'Content-Type': 'text/plain;charset=UTF-8', 'Content-Length': '21', 'Date': 'Thu, 06 Oct 2022 16:33:55 GMT'} 
+ body=Successfully raked DB 
+ </msg>
+<status status="PASS" starttime="20221007 00:33:55.394" endtime="20221007 00:33:55.394"></status>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20221007 00:33:55.394" endtime="20221007 00:33:57.624"></status>
+</kw>
+<status status="PASS" starttime="20221007 00:33:55.394" endtime="20221007 00:33:57.624"></status>
+</kw>
+<status status="PASS" starttime="20221007 00:33:49.482" endtime="20221007 00:33:57.624" critical="yes"></status>
+</test>
+<test id="s1-s1-t4" name="TC4:Uploading text file should not populate working class heros in system">
+<kw name="Create Chrome Driver And Open Url" type="setup">
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<arguments>
+<arg>Chrome</arg>
+</arguments>
+<msg timestamp="20221007 00:33:57.624" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20221007 00:33:57.624" endtime="20221007 00:33:58.992"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+</arguments>
+<msg timestamp="20221007 00:33:58.993" level="INFO">Opening url 'http://localhost:8080/'</msg>
+<status status="PASS" starttime="20221007 00:33:58.992" endtime="20221007 00:34:01.609"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20221007 00:34:01.609" endtime="20221007 00:34:01.755"></status>
+</kw>
+<status status="PASS" starttime="20221007 00:33:57.624" endtime="20221007 00:34:01.756"></status>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` is enabled.</doc>
+<arguments>
+<arg>xpath://body/div[1]/div[2]/div[1]/div[1]/div[2]/input[1]</arg>
+<arg>60</arg>
+</arguments>
+<status status="PASS" starttime="20221007 00:34:01.756" endtime="20221007 00:34:01.827"></status>
+</kw>
+<kw name="Choose File" library="SeleniumLibrary">
+<doc>Inputs the ``file_path`` into file input field ``locator``.</doc>
+<arguments>
+<arg>xpath://body/div[1]/div[2]/div[1]/div[1]/div[2]/input[1]</arg>
+<arg>${EXECDIR}${/}\\testdata\\text_file.txt</arg>
+</arguments>
+<status status="PASS" starttime="20221007 00:34:01.827" endtime="20221007 00:34:01.885"></status>
+</kw>
+<kw name="Wait Until Element Is Enabled" library="SeleniumLibrary">
+<doc>Waits until element ``locator`` is enabled.</doc>
+<arguments>
+<arg>xpath://button[contains(text(),'Refresh Tax Relief Table')]</arg>
+<arg>60</arg>
+</arguments>
+<status status="PASS" starttime="20221007 00:34:01.885" endtime="20221007 00:34:01.927"></status>
+</kw>
+<kw name="Click Button" library="SeleniumLibrary">
+<doc>Clicks button identified by ``locator``.</doc>
+<arguments>
+<arg>xpath://button[contains(text(),'Refresh Tax Relief Table')]</arg>
+</arguments>
+<msg timestamp="20221007 00:34:01.927" level="INFO">Clicking button 'xpath://button[contains(text(),'Refresh Tax Relief Table')]'.</msg>
+<status status="PASS" starttime="20221007 00:34:01.927" endtime="20221007 00:34:01.993"></status>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<arguments>
+<arg>window.scrollTo(0,500)</arg>
+</arguments>
+<msg timestamp="20221007 00:34:01.994" level="INFO">Executing JavaScript:
+window.scrollTo(0,500)
+Without any arguments.</msg>
+<status status="PASS" starttime="20221007 00:34:01.993" endtime="20221007 00:34:02.006"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>2</arg>
+</arguments>
+<msg timestamp="20221007 00:34:04.011" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20221007 00:34:02.007" endtime="20221007 00:34:04.011"></status>
+</kw>
+<kw name="Element Text Should Be" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` contains exact text ``expected``.</doc>
+<arguments>
+<arg>xpath:/html[1]/body[1]/div[1]/div[2]/div[1]/div[2]/div[1]/p[1]</arg>
+<arg>£0 will be dispensed to 0 Working Class Hero/s</arg>
+<arg>timeout=5</arg>
+</arguments>
+<msg timestamp="20221007 00:34:04.011" level="INFO">Verifying element 'xpath:/html[1]/body[1]/div[1]/div[2]/div[1]/div[2]/div[1]/p[1]' contains exact text '£0 will be dispensed to 0 Working Class Hero/s'.</msg>
+<status status="PASS" starttime="20221007 00:34:04.011" endtime="20221007 00:34:04.042"></status>
+</kw>
+<kw name="Clean Up Data And Close Browser" type="teardown">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>rakedbsession</arg>
+<arg>${url}</arg>
+</arguments>
+<msg timestamp="20221007 00:34:04.042" level="INFO">Creating Session using : alias=rakedbsession, url=http://localhost:8080/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20221007 00:34:04.042" endtime="20221007 00:34:04.042"></status>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<arguments>
+<arg>rakedbsession</arg>
+<arg>/calculator/rakeDatabase</arg>
+</arguments>
+<msg timestamp="20221007 00:34:04.042" level="INFO">POST Request : url=http://localhost:8080/calculator/rakeDatabase 
+ path_url=/calculator/rakeDatabase 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20221007 00:34:04.042" level="INFO">POST Response : url=http://localhost:8080/calculator/rakeDatabase 
+ status=200, reason= 
+ headers={'Content-Type': 'text/plain;charset=UTF-8', 'Content-Length': '21', 'Date': 'Thu, 06 Oct 2022 16:34:04 GMT'} 
+ body=Successfully raked DB 
+ </msg>
+<status status="PASS" starttime="20221007 00:34:04.042" endtime="20221007 00:34:04.042"></status>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20221007 00:34:04.042" endtime="20221007 00:34:06.287"></status>
+</kw>
+<status status="PASS" starttime="20221007 00:34:04.042" endtime="20221007 00:34:06.287"></status>
+</kw>
+<status status="PASS" starttime="20221007 00:33:57.624" endtime="20221007 00:34:06.287" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20221007 00:33:32.370" endtime="20221007 00:34:06.287"></status>
+</suite>
+<suite id="s1-s2" name="userstory5 UI" source="E:\Assignment\oppenheimer-project-test\tests\userstory5_UI.robot">
+<kw name="Create Chrome Driver And Open Url" type="setup">
+<kw name="Create Webdriver" library="SeleniumLibrary">
+<doc>Creates an instance of Selenium WebDriver.</doc>
+<arguments>
+<arg>Chrome</arg>
+</arguments>
+<msg timestamp="20221007 00:34:06.302" level="INFO">Creating an instance of the Chrome WebDriver.</msg>
+<status status="PASS" starttime="20221007 00:34:06.302" endtime="20221007 00:34:07.667"></status>
+</kw>
+<kw name="Go To" library="SeleniumLibrary">
+<doc>Navigates the active browser instance to the provided ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+</arguments>
+<msg timestamp="20221007 00:34:07.668" level="INFO">Opening url 'http://localhost:8080/'</msg>
+<status status="PASS" starttime="20221007 00:34:07.667" endtime="20221007 00:34:09.537"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20221007 00:34:09.538" endtime="20221007 00:34:09.661"></status>
+</kw>
+<status status="PASS" starttime="20221007 00:34:06.302" endtime="20221007 00:34:09.661"></status>
+</kw>
+<test id="s1-s2-t1" name="TC1:Dispense now button on screen should be red colored (GET)">
+<kw name="Get WebElement" library="SeleniumLibrary">
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<arguments>
+<arg>css=body:nth-child(2) div.container-fluid:nth-child(1) div.container:nth-child(4) div:nth-child(1) &gt; a.btn.btn-danger.btn-block:nth-child(8)</arg>
+</arguments>
+<assign>
+<var>${element}</var>
+</assign>
+<msg timestamp="20221007 00:34:09.684" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="c6a09bb675afb6dc9044981c388c9832", element="21750b01-e7a1-41e5-a428-c497329999fa")&gt;</msg>
+<status status="PASS" starttime="20221007 00:34:09.661" endtime="20221007 00:34:09.684"></status>
+</kw>
+<kw name="Call Method" library="BuiltIn">
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<arguments>
+<arg>${element}</arg>
+<arg>value_of_css_property</arg>
+<arg>background-color</arg>
+</arguments>
+<assign>
+<var>${bg_color}</var>
+</assign>
+<msg timestamp="20221007 00:34:09.684" level="INFO">${bg_color} = rgba(220, 53, 69, 1)</msg>
+<status status="PASS" starttime="20221007 00:34:09.684" endtime="20221007 00:34:09.684"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${bg_color}</arg>
+</arguments>
+<msg timestamp="20221007 00:34:09.699" level="INFO">rgba(220, 53, 69, 1)</msg>
+<status status="PASS" starttime="20221007 00:34:09.699" endtime="20221007 00:34:09.699"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${bg_color}</arg>
+<arg>${expected_button_color}</arg>
+</arguments>
+<status status="PASS" starttime="20221007 00:34:09.699" endtime="20221007 00:34:09.699"></status>
+</kw>
+<status status="PASS" starttime="20221007 00:34:09.661" endtime="20221007 00:34:09.699" critical="yes"></status>
+</test>
+<test id="s1-s2-t2" name="TC2:Text on the button">
+<kw name="Get WebElement" library="SeleniumLibrary">
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<arguments>
+<arg>css=body:nth-child(2) div.container-fluid:nth-child(1) div.container:nth-child(4) div:nth-child(1) &gt; a.btn.btn-danger.btn-block:nth-child(8)</arg>
+</arguments>
+<assign>
+<var>${element}</var>
+</assign>
+<msg timestamp="20221007 00:34:09.715" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="c6a09bb675afb6dc9044981c388c9832", element="21750b01-e7a1-41e5-a428-c497329999fa")&gt;</msg>
+<status status="PASS" starttime="20221007 00:34:09.699" endtime="20221007 00:34:09.715"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20221007 00:34:09.731" level="INFO">${text} = Dispense Now</msg>
+<status status="PASS" starttime="20221007 00:34:09.715" endtime="20221007 00:34:09.731"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${text}</arg>
+</arguments>
+<msg timestamp="20221007 00:34:09.731" level="INFO">Dispense Now</msg>
+<status status="PASS" starttime="20221007 00:34:09.731" endtime="20221007 00:34:09.731"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${text}</arg>
+<arg>Dispense Now</arg>
+</arguments>
+<status status="PASS" starttime="20221007 00:34:09.731" endtime="20221007 00:34:09.731"></status>
+</kw>
+<status status="PASS" starttime="20221007 00:34:09.699" endtime="20221007 00:34:09.731" critical="yes"></status>
+</test>
+<test id="s1-s2-t3" name="TC3:Should redirect when click on Dispense Now button">
+<kw name="Get WebElement" library="SeleniumLibrary">
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<arguments>
+<arg>css=body:nth-child(2) div.container-fluid:nth-child(1) div.container:nth-child(4) div:nth-child(1) &gt; a.btn.btn-danger.btn-block:nth-child(8)</arg>
+</arguments>
+<assign>
+<var>${element}</var>
+</assign>
+<msg timestamp="20221007 00:34:09.752" level="INFO">${element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="c6a09bb675afb6dc9044981c388c9832", element="21750b01-e7a1-41e5-a428-c497329999fa")&gt;</msg>
+<status status="PASS" starttime="20221007 00:34:09.731" endtime="20221007 00:34:09.752"></status>
+</kw>
+<kw name="Click Link" library="SeleniumLibrary">
+<doc>Clicks a link identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<msg timestamp="20221007 00:34:09.752" level="INFO">Clicking link '&lt;selenium.webdriver.remote.webelement.WebElement (session="c6a09bb675afb6dc9044981c388c9832", element="21750b01-e7a1-41e5-a428-c497329999fa")&gt;'.</msg>
+<status status="PASS" starttime="20221007 00:34:09.752" endtime="20221007 00:34:10.106"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5</arg>
+</arguments>
+<msg timestamp="20221007 00:34:15.109" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20221007 00:34:10.107" endtime="20221007 00:34:15.109"></status>
+</kw>
+<kw name="Get WebElement" library="SeleniumLibrary">
+<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<arguments>
+<arg>css=div.v-application.v-application--is-ltr.theme--light div.v-application--wrap main.v-main.v-content div.v-main__wrap.v-content__wrap div.container &gt; div.display-4.font-weight-bold</arg>
+</arguments>
+<assign>
+<var>${directed_page_element}</var>
+</assign>
+<msg timestamp="20221007 00:34:15.125" level="INFO">${directed_page_element} = &lt;selenium.webdriver.remote.webelement.WebElement (session="c6a09bb675afb6dc9044981c388c9832", element="e4c4f16f-b64f-476a-be86-d94c3afd1adc")&gt;</msg>
+<status status="PASS" starttime="20221007 00:34:15.109" endtime="20221007 00:34:15.125"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of element identified by ``locator``.</doc>
+<arguments>
+<arg>${directed_page_element}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20221007 00:34:15.145" level="INFO">${text} = Cash dispensed</msg>
+<status status="PASS" starttime="20221007 00:34:15.125" endtime="20221007 00:34:15.145"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>${text}</arg>
+</arguments>
+<msg timestamp="20221007 00:34:15.146" level="INFO">Cash dispensed</msg>
+<status status="PASS" starttime="20221007 00:34:15.146" endtime="20221007 00:34:15.146"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${text}</arg>
+<arg>Cash dispensed</arg>
+</arguments>
+<status status="PASS" starttime="20221007 00:34:15.146" endtime="20221007 00:34:15.146"></status>
+</kw>
+<status status="PASS" starttime="20221007 00:34:09.731" endtime="20221007 00:34:15.146" critical="yes"></status>
+</test>
+<kw name="Clean Up Data And Close Browser" type="teardown">
+<kw name="Create Session" library="RequestsLibrary">
+<doc>Create Session: create a HTTP session to a server</doc>
+<arguments>
+<arg>rakedbsession</arg>
+<arg>${url}</arg>
+</arguments>
+<msg timestamp="20221007 00:34:15.148" level="INFO">Creating Session using : alias=rakedbsession, url=http://localhost:8080/, headers={},                     cookies={}, auth=None, timeout=None, proxies=None, verify=False,                     debug=0 </msg>
+<status status="PASS" starttime="20221007 00:34:15.147" endtime="20221007 00:34:15.148"></status>
+</kw>
+<kw name="POST On Session" library="RequestsLibrary">
+<doc>Sends a POST request on a previously created HTTP Session.</doc>
+<arguments>
+<arg>rakedbsession</arg>
+<arg>/calculator/rakeDatabase</arg>
+</arguments>
+<msg timestamp="20221007 00:34:15.152" level="INFO">POST Request : url=http://localhost:8080/calculator/rakeDatabase 
+ path_url=/calculator/rakeDatabase 
+ headers={'User-Agent': 'python-requests/2.27.1', 'Accept-Encoding': 'gzip, deflate, br', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg timestamp="20221007 00:34:15.152" level="INFO">POST Response : url=http://localhost:8080/calculator/rakeDatabase 
+ status=200, reason= 
+ headers={'Content-Type': 'text/plain;charset=UTF-8', 'Content-Length': '21', 'Date': 'Thu, 06 Oct 2022 16:34:15 GMT'} 
+ body=Successfully raked DB 
+ </msg>
+<status status="PASS" starttime="20221007 00:34:15.148" endtime="20221007 00:34:15.152"></status>
+</kw>
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20221007 00:34:15.153" endtime="20221007 00:34:17.551"></status>
+</kw>
+<status status="PASS" starttime="20221007 00:34:15.147" endtime="20221007 00:34:17.551"></status>
+</kw>
+<doc>Suite description</doc>
+<status status="PASS" starttime="20221007 00:34:06.287" endtime="20221007 00:34:17.551"></status>
+</suite>
+<status status="PASS" starttime="20221007 00:33:32.339" endtime="20221007 00:34:17.557"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="7" fail="0">Critical Tests</stat>
+<stat pass="7" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="7" fail="0" id="s1" name="userstory3 UI &amp; userstory5 UI">userstory3 UI &amp; userstory5 UI</stat>
+<stat pass="4" fail="0" id="s1-s1" name="userstory3 UI">userstory3 UI &amp; userstory5 UI.userstory3 UI</stat>
+<stat pass="3" fail="0" id="s1-s2" name="userstory5 UI">userstory3 UI &amp; userstory5 UI.userstory5 UI</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
